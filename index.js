@@ -5,6 +5,9 @@ var cookieParser = require('cookie-parser');
 var userRoute = require('./routes/user.route');
 var authRoute = require('./routes/auth.route');
 var productRouter = require('./routes/product.route');
+var cartRoute = require('./routes/cart.router');
+var transferRouer = require('./routes/transfer.router');
+
 var authMiddleware = require('./middlewares/auth.middleware');
 var sessionMiddleware = require('./middlewares/session.middleware');
 
@@ -26,6 +29,8 @@ app.get('/', (req, res) => res.render('index',{
 }));
 app.use('/users',authMiddleware.requireAuth, userRoute);
 app.use('/auth', authRoute);
-app.use('/products',productRouter);
+app.use('/products',authMiddleware.requireAuth,productRouter);
+app.use('/cart', cartRoute);
+app.use('/transfer', transferRouer);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

@@ -615,19 +615,20 @@
       "description": "hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla"
     }
   ],
-  "session": [],
   "sessions": [
     {
-      "id": "hiEw8YYgr"
+      "id": "H3A8R1qeU",
+      "cart": {
+        "62cae701-b27f-4276-9f5a-1bf9f99eb5f1": 2,
+        "526f6ce6-98b0-4f51-8098-fb4b5a3eec44": 1,
+        "f09931d5-e768-4927-addb-765ea2f5027e": 1
+      }
     },
     {
-      "id": "ZJRozPtFT"
-    },
-    {
-      "id": "JGLamBCBk"
-    },
-    {
-      "id": "CYzcS1sge"
+      "id": "4O4fmlrFJ",
+      "cart": {
+        "f09931d5-e768-4927-addb-765ea2f5027e": 2
+      }
     }
   ]
 }
