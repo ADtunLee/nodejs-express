@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
+var csurf = require('csurf');
 
 var userRoute = require('./routes/user.route');
 var authRoute = require('./routes/auth.route');
@@ -21,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser('asdasdasdasd'));
 app.use(express.static('public'));
 app.use(sessionMiddleware);
+app.use(csurf({cookie: true}));
 
 app.set('view engine', 'pug');
 app.set('views', './views');
@@ -31,6 +33,6 @@ app.use('/users',authMiddleware.requireAuth, userRoute);
 app.use('/auth', authRoute);
 app.use('/products',authMiddleware.requireAuth,productRouter);
 app.use('/cart', cartRoute);
-app.use('/transfer', transferRouer);
+app.use('/transfer',authMiddleware.requireAuth, transferRouer);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
